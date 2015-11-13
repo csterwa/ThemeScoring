@@ -15,7 +15,18 @@ $ export TS_USERNAME=<username>
 $ export TS_PASSWORD=<password>
 ```
 
-Once these environment variables are set, run `npm start` for preview at http://localhost:9000.
+Once these environment variables are set, run `npm start` for preview at http://localhost:9000. After adding criteria and themes the application should look something like the following:
+
+![Theme Scoring example](docs/theme-scoring-example.png)
+
+This will save your data in the local storage on your browser. This means that the data you put in will only be available in the browser you run the application in.
+
+To persist the data in a database, it is currently configured to accept credentials for [Orchestrate](https://orchestrate.io) when the following environment variables are set in your environment:
+
+```
+$ export ORCHESTRATE_API_KEY=<key>
+$ export ORCHESTRATE_API_HOST=api.orchestrate.io
+```
 
 ## Testing
 

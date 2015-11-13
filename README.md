@@ -64,7 +64,7 @@ After it has been pushed, you must setup the environment variables for your basi
 ```
 $ cf set-env mythemescoring TS_USERNAME <username>
 $ cf set-env mythemescoring TS_PASSWORD <password>
-$ cf restage
+$ cf restage mythemescoring
 ```
 
 To setup persistence with Orchestrate, currently I recommend using [AppFog](https://ctl.io/appfog), which is a Cloud Foundry based Cloud Native platform. To setup Orchestrate and bind it to your application, run the following:
@@ -72,6 +72,7 @@ To setup persistence with Orchestrate, currently I recommend using [AppFog](http
 ```
 $ cf create-service orchestrate free themescoring-db
 $ cf bind-service mythemescoring themescoring-db
+$ cf restage
 ```
 
 Once bound, the application will restage and pick up the Orchestrate credentials from the environment and start persisting so that others can see your scores, as well.

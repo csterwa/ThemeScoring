@@ -28,6 +28,29 @@ $ export ORCHESTRATE_API_KEY=<key>
 $ export ORCHESTRATE_API_HOST=api.orchestrate.io
 ```
 
+## Using the Application
+
+The Theme Scoring technique involves scoring themes of work based on criteria that is driving priority decisions. To get started, I recommend thinking of the top 3 criteria that drive priority decisions. In the example above, the following criteria were used:
+
+* Revenue with weight of 13
+* Reduce Churn with weight of 5
+* Stability with weight of 8
+
+The weight is relative to each other. In the example criteria above, Revenue is currently driving decisions more than Reducing Churn and Stability.
+
+You can have any number of criteria but it is good to start with a few that are easy to think of and then add some themes to test out the criteria against. Each theme can then be ranked against each criteria. Typically you would use a rank of 1 to 5 where:
+
+* 3 is little impact to that criteria
+* less than 3 it has negative impact on that criteria
+* more than 3 it has positive impact on that criteria
+
+Just click on the number, which defaults to 3, and enter a number between 1 and 5. After entering a rank, the score will be updated with the formula:
+
+* Each criteria is scored by `rank * criteria weight`
+* The score is sum of all criteria scores
+
+The list of themes will automatically reorder with each criteria ranked. Right now the user experience is not optimal so you may lose the theme you are ranking criteria for so be careful. The application will be updated once I know folks are using it and are asking for new capabilities and experience optimizations. For now, it meets my needs.
+
 ## Testing
 
 Running `grunt test` will run the unit tests with karma.

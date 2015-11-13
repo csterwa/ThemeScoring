@@ -72,7 +72,7 @@ To setup persistence with Orchestrate, currently I recommend using [AppFog](http
 ```
 $ cf create-service orchestrate free themescoring-db
 $ cf bind-service mythemescoring themescoring-db
-$ cf restage
+$ cf restage mythemescoring
 ```
 
 Once bound, the application will restage and pick up the Orchestrate credentials from the environment and start persisting so that others can see your scores, as well.

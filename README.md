@@ -59,6 +59,23 @@ There is a manifest.yml file that helps Cloud Foundry to deploy your application
 $ cf push
 ```
 
+After it has been pushed, you must setup the environment variables for your basic authentication and restage the deployed application:
+
+```
+$ cf set-env mythemescoring TS_USERNAME <username>
+$ cf set-env mythemescoring TS_PASSWORD <password>
+$ cf restage
+```
+
+To setup persistence with Orchestrate, currently I recommend using [AppFog](https://ctl.io/appfog), which is a Cloud Foundry based Cloud Native platform. To setup Orchestrate and bind it to your application, run the following:
+
+```
+$ cf create-service orchestrate free themescoring-db
+$ cf bind-service mythemescoring themescoring-db
+```
+
+Once bound, the application will restage and pick up the Orchestrate credentials from the environment and start persisting so that others can see your scores, as well.
+
 ## Testing
 
 Running `grunt test` will run the unit tests with karma.

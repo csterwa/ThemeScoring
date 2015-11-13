@@ -3,5 +3,3 @@ applications:
 - name: themescoring
   memory: 128M
   instances: 1
-  env:
-    THEME_SCORING_API_URL: http://themescoringapi.useast.appfog.ctl.io

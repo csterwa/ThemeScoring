@@ -1,0 +1,55 @@
+[{ "name": "Template Management Redesign",
+    "criteria": 
+     { "Extensibility": "3",
+       "Stability": "4",
+       "Love $$$": "1",
+       "Reduce manual effort": "4" } },
+  { "name": "Simple Backup",
+    "criteria": 
+     { "Extensibility": "3",
+       "Stability": "5",
+       "Love $$$": "4",
+       "Reduce manual effort": "3" } },
+  { "name": "Platform Services",
+    "criteria": 
+     { "Extensibility": "5",
+       "Stability": "3",
+       "Love $$$": "4",
+       "Reduce manual effort": "3" } },
+  { "name": "Notification Service",
+    "criteria": 
+     { "Extensibility": "4",
+       "Stability": "3",
+       "Love $$$": "1",
+       "Reduce manual effort": "3" } },
+  { "name": "Service Authentication",
+    "criteria": 
+     { "Extensibility": "5",
+       "Stability": "2",
+       "Love $$$": "3",
+       "Reduce manual effort": "3" } },
+  { "name": "Firewall Stability",
+    "criteria": 
+     { "Extensibility": "1",
+       "Stability": "5",
+       "Love $$$": "3",
+       "Reduce manual effort": "4" } },
+  { "name": "Credits UI",
+    "criteria": 
+     { "Extensibility": "1",
+       "Stability": "3",
+       "Love $$$": "4",
+       "Reduce manual effort": "5" } },
+  { "name": "VM Import",
+    "criteria": 
+     { "Extensibility": "3",
+       "Stability": "2",
+       "Love $$$": "5",
+       "Reduce manual effort": "5" } } ]
+
+
+Criteria  Weight
+Extensibility 0.35
+Stability 0.2
+Love $$$  0.4
+Reduce manual effort  0.05

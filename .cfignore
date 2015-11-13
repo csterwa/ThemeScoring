@@ -1,0 +1,6 @@
+node_modules/
+bundles/
+bower_components/
+.tmp/
+travis.yml
+test/

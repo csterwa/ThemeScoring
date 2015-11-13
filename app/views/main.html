@@ -1,0 +1,76 @@
+<div class="row">
+  <div class="col-md-4">
+    <p>
+      <form>
+        <div>
+          <label>Name:</label>
+          <input type='text' ng-model='criteriaName' placeholder="Criteria Name" required/>
+        </div>
+        <div>
+          <label>Weight:</label>
+          <input type='text' ng-model='criteriaWeight' placeholder="Criteria Weight" required/>
+        </div>
+        <button class="btn btn-default" ng-click="addCriteria(criteriaName, criteriaWeight); criteriaName=''; criteriaWeight=''">Add Criteria</button>
+      </form>
+    </p>
+  </div>
+  <div class="col-md-8">
+    <p>
+      <form>
+        <div>
+          <label>Name:</label>
+          <input type='text' ng-model='themeName' placeholder="Theme Name" required/>
+          <button class="btn btn-default" ng-click="addTheme(themeName); themeName=''">Add Theme</button>
+        </div>
+      </form>
+    </p>
+    <p>
+      <input type="checkbox" ng-click="hideRank = !hideRank"/> Hide Ranks
+    </p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4">
+    <table class="table table-striped">
+      <tr>
+        <th width="70%">Criteria</th>
+        <th width="20%">Weight</th>
+        <th width="10%"></th>
+      </tr>
+      <tr ng-repeat="(name, c) in $storage.criteriaList">
+        <td><a href="#" editable-text="name">{{ name }}</a></td>
+        <td><a href="#" editable-text="c.weight">{{ c.weight }}</a></td>
+        <td><a ng-click="removeCriteria(name)"><i class="glyphicon glyphicon-remove-circle"></i></a></td>
+      </tr>
+    </table>
+  </div>
+  <div class="col-md-8">
+    <table class="table table-striped">
+      <tr>
+        <th width="30%">Theme</th>
+        <th width="20%" ng-hide="hideRank">Rank</th>
+        <th width="15%">Score</th>
+        <th width="30%">Notes</th>
+        <th width="5%"></th>
+      </tr>
+      <tr ng-repeat="theme in $storage.themeList | orderBy:calculateScore:true">
+        <td>
+           <a href="#" editable-text="theme.name">{{ theme.name }}</a>
+        </td>
+        <td ng-hide="hideRank">
+          <table class="table table-striped">
+            <tr ng-repeat="(name, c) in $storage.criteriaList">
+              <td>{{ name }}</td>
+              <td>
+                <a href="#" editable-text="theme.criteria[name]">{{ theme.criteria[name] || '3' }}</a>
+              </td>
+            </tr>
+          </table>
+        </td>
+        <td>{{ calculateScore(theme) }}</td>
+        <td><a href="#" editable-textarea="theme.notes" e-rows="5" e-cols="30">{{ theme.notes || 'Add Notes' }}</a>
+        <td><a ng-click="removeTheme(theme.name)"><i class="glyphicon glyphicon-remove-circle"></i></a></td>
+      </tr>
+    </table>
+  </div>
+</div>

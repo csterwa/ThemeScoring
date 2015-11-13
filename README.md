@@ -51,6 +51,14 @@ Just click on the number, which defaults to 3, and enter a number between 1 and 
 
 The list of themes will automatically reorder with each criteria ranked. Right now the user experience is not optimal so you may lose the theme you are ranking criteria for so be careful. The application will be updated once I know folks are using it and are asking for new capabilities and experience optimizations. For now, it meets my needs.
 
+## Deploying to Cloud Foundry
+
+There is a manifest.yml file that helps Cloud Foundry to deploy your application. I recommend changing the name value in the manifest.yml file to a unique name so that you don't collide with someone else who is deploying their own Theme Scoring application. To deploy, log in to your Cloud Foundry, set the target space to deploy to, and then push your app using the following command after you change the name:
+
+```
+$ cf push
+```
+
 ## Testing
 
 Running `grunt test` will run the unit tests with karma.

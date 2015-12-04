@@ -23,7 +23,11 @@ input {
   background-color: #252525;
 }
 
-.editable-click, a.editable-click {
+a.editable-click.editable-empty {
+  color: #D14;
+}
+
+a.editable-click {
   color: #22CCCC;
 }
 

@@ -21,7 +21,7 @@ angular.module('themeScoringApp')
         if (data[0]) {
             $scope.$storage.criteriaList = data[0].value;
         } else {
-            $scope.$storage.criteriaList = [];
+            $scope.$storage.criteriaList = {};
         }
     };
 

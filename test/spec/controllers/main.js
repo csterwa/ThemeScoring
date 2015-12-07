@@ -29,9 +29,9 @@ describe('Controller: MainCtrl', function () {
   it('should handle invalid criteria list on load', function() {
     scope.$storage.criteriaList = undefined;
 
-    MainCtrl._setCriteria([]);
+    MainCtrl._setCriteria({});
 
-    expect(localStorage.criteriaList).toEqual([]);
+    expect(localStorage.criteriaList).toEqual({});
   });
 
   it('should add a given theme', function() {

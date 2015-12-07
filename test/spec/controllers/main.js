@@ -26,6 +26,14 @@ describe('Controller: MainCtrl', function () {
     expect(localStorage.criteriaList[criteriaName].weight).toBe(0.2);
   });
 
+  it('should handle invalid criteria list on load', function() {
+    scope.$storage.criteriaList = undefined;
+
+    MainCtrl._setCriteria([]);
+
+    expect(localStorage.criteriaList).toEqual([]);
+  });
+
   it('should add a given theme', function() {
     scope.$storage.themeList = [];
 
@@ -33,6 +41,14 @@ describe('Controller: MainCtrl', function () {
 
     expect(localStorage.themeList.length).toBe(1);
     expect(localStorage.themeList[0].name).toBe('perfection');
+  });
+
+  it('should handle invalid theme list on load', function() {
+    scope.$storage.themeList = undefined;
+    
+    MainCtrl._setThemes([]);
+
+    expect(localStorage.themeList).toEqual([]);
   });
 
   it('should calculate score for a theme', function() {

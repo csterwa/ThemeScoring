@@ -18,7 +18,11 @@ angular.module('themeScoringApp')
     });
 
     themeScoringAppCtl._setCriteria = function(data) {
-        $scope.$storage.criteriaList = data[0].value;
+        if (data[0]) {
+            $scope.$storage.criteriaList = data[0].value;
+        } else {
+            $scope.$storage.criteriaList = [];
+        }
     };
 
     Themes.query(function(data) {
@@ -27,10 +31,14 @@ angular.module('themeScoringApp')
     });
 
     themeScoringAppCtl._setThemes = function(data) {
-        var themes = data[0].value.themes || [];
-        console.log('themes', themes);
+        if (data[0]) {
+            var themes = data[0].value.themes || [];
+            console.log('themes', themes);
 
-	    $scope.$storage.themeList = themes;
+            $scope.$storage.themeList = themes;
+        } else {
+            $scope.$storage.themeList = [];
+        }
     };
 
     $scope.addCriteria = function(name, weight) {

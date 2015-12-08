@@ -21,7 +21,8 @@ angular
     'xeditable',
     'ngStorage',
     'themeScoringApi',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'angular-confirm'
   ])
   .config(function ($routeProvider) {
     $routeProvider

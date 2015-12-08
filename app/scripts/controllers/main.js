@@ -8,7 +8,7 @@
  * Controller of the themeScoringApp
  */
 angular.module('themeScoringApp')
-  .controller('MainCtrl', function ($scope, $localStorage, Criteria, Themes) {
+  .controller('MainCtrl', function ($scope, $localStorage, $confirm, Criteria, Themes) {
   	var themeScoringAppCtl = this;
   	$scope.$storage = $localStorage;
 

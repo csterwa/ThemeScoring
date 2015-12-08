@@ -53,8 +53,8 @@ describe('Controller: MainCtrl', function () {
 
   it('should calculate score for a theme', function() {
     localStorage.criteriaList = { 
-      'nirvana': { weight: '0.4' },
-      'soul train': { weight: '0.6' }
+      'nirvana': { weight: '2' },
+      'soul train': { weight: '5' }
     };
 
     localStorage.themeList = [
@@ -62,8 +62,8 @@ describe('Controller: MainCtrl', function () {
       { name: 'sit', criteria: { 'nirvana': '5', 'soul train': '4' } }
     ];
 
-    expect(scope.calculateScore(localStorage.themeList[0])).toBe('2.4');
-    expect(scope.calculateScore(localStorage.themeList[1])).toBe('4.4');
+    expect(scope.calculateScore(localStorage.themeList[0])).toBe(16);
+    expect(scope.calculateScore(localStorage.themeList[1])).toBe(30);
   });
 
   it('should remove criteria from list and themes', function() {

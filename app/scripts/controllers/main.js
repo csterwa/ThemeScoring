@@ -73,7 +73,7 @@ angular.module('themeScoringApp')
     		}
     	}
 
-    	return score.toFixed(1);
+    	return Math.round(score);
     };
 
     $scope.$watch('$storage.criteriaList', function(newVal) {

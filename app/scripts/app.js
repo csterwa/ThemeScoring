@@ -20,7 +20,8 @@ angular
     'ngTouch',
     'xeditable',
     'ngStorage',
-    'themeScoringApi'
+    'themeScoringApi',
+    'ui.bootstrap'
   ])
   .config(function ($routeProvider) {
     $routeProvider

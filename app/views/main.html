@@ -51,9 +51,9 @@
     <table class="table table-striped">
       <tr>
         <th width="30%">Theme</th>
-        <th width="20%" ng-hide="hideRank">Rank</th>
+        <th width="30%" ng-hide="hideRank">Rank</th>
         <th width="15%">Score</th>
-        <th width="30%">Notes</th>
+        <th width="20%">Notes</th>
         <th width="5%"></th>
       </tr>
       <tr ng-repeat="theme in $storage.themeList | orderBy:calculateScore:true">
@@ -65,7 +65,7 @@
             <tr ng-repeat="(name, c) in $storage.criteriaList">
               <td>{{ name }}</td>
               <td>
-                <a href="#" editable-text="theme.criteria[name]">{{ theme.criteria[name] || '3' }}</a>
+                <a href="#" editable-text="theme.criteria[name]">{{ theme.criteria[name] || '0' }}</a>
               </td>
             </tr>
           </table>

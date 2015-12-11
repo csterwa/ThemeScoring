@@ -60,16 +60,16 @@
             <tr ng-repeat="(name, c) in $storage.criteriaList">
               <td>{{ name }}</td>
               <td>
-                <a href="#" editable-text="theme.criteria[name]">{{ theme.criteria[name] || '0' }}</a>
+                <a href="#" editable-text="copiedThemeCriteria[name]">{{ copiedThemeCriteria[name] || '0' }}</a>
               </td>
             </tr>
-            <tr><td colspan="2"><button ng-click="editMe = false" class="btn btn-success btn-sm">Done</a></td>
+            <tr><td colspan="2"><button ng-click="saveThemeCriteria(theme); editMe = false" class="btn btn-success btn-sm">Save</a></td>
           </table>
         </td>
         <td>{{ calculateScore(theme) }}</td>
         <td><a href="#" editable-textarea="theme.notes" e-rows="5" e-cols="30">{{ theme.notes || 'Add Notes' }}</a>
         <td>
-          <a ng-click="editMe = true"><i class="glyphicon glyphicon-edit"></i></a>
+          <a ng-click="setupThemeCriteriaCopy(theme); editMe = true"><i class="glyphicon glyphicon-edit"></i></a>
           <a ng-click="removeTheme(theme.name)" confirm="Do you want to delete theme '{{theme.name}}'?" confirm-title="Are you sure?" confirm-ok="Yes" confirm-cancel="No"><i class="glyphicon glyphicon-remove-circle"></i></a>
         </td>
       </tr>

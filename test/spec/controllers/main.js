@@ -98,4 +98,29 @@ describe('Controller: MainCtrl', function () {
     expect(localStorage.themeList.length).toBe(1);
     expect(localStorage.themeList[0].name).toBe('sit');
   });
+
+  it('should copy a theme criteria values into editable object', function() {
+    localStorage.themeList = [
+      { name: 'jump', criteria: { 'nirvana': '3', 'soul train': '2' } },
+      { name: 'sit', criteria: { 'nirvana': '5', 'soul train': '4' } }
+    ];
+
+    scope.setupThemeCriteriaCopy(localStorage.themeList[1]);
+
+    expect(scope.copiedThemeCriteria).toEqual(localStorage.themeList[1].criteria);
+  });
+
+  it('should save edited copy of theme criteria back to theme', function() {
+    localStorage.themeList = [
+      { name: 'jump', criteria: { 'nirvana': '3', 'soul train': '2' } },
+      { name: 'sit', criteria: { 'nirvana': '5', 'soul train': '4' } }
+    ];
+    var updatedThemeCriteria = { 'nirvana': '4', 'soul train': '1' };
+    scope.copiedThemeCriteria = updatedThemeCriteria;
+
+    scope.saveThemeCriteria(localStorage.themeList[1]);
+
+    expect(scope.copiedThemeCriteria).toBeUndefined();
+    expect(localStorage.themeList[1].criteria).toEqual(updatedThemeCriteria);
+  });
 });

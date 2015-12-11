@@ -63,6 +63,15 @@ angular.module('themeScoringApp')
         });
     };
 
+    $scope.setupThemeCriteriaCopy = function(theme) {
+        $scope.copiedThemeCriteria = angular.copy(theme.criteria);
+    };
+
+    $scope.saveThemeCriteria = function(theme) {
+        theme.criteria = $scope.copiedThemeCriteria;
+        $scope.copiedThemeCriteria = undefined;
+    };
+
     $scope.calculateScore = function(theme) {
     	var score = 0;
 

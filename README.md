@@ -36,15 +36,15 @@ The Theme Scoring technique involves scoring themes of work based on criteria th
 * Reduce Churn with weight of 5
 * Stability with weight of 8
 
-The weight is relative to each other. In the example criteria above, Revenue is currently driving decisions more than Reducing Churn and Stability.
+The weight is relative to each other and I typically use the fibonacci series (1,2,3,5,8,13,21,...) since criteria that are more important to me now tend to be much more important than some others. In the example criteria above, Revenue is currently driving decisions more than Reducing Churn and Stability.
 
-You can have any number of criteria but it is good to start with a few that are easy to think of and then add some themes to test out the criteria against. Each theme can then be ranked against each criteria. Typically you would use a rank of 1 to 5 where:
+You can have any number of criteria but it is good to start with a few that are easy to think of and then add some themes to test out the criteria against. Each theme can then be ranked against each criteria. Typically I use a rank of -5 to 5 where:
 
-* 3 is little impact to that criteria
-* less than 3 it has negative impact on that criteria
-* more than 3 it has positive impact on that criteria
+* 0 is little/no impact to that criteria
+* less than 0 it has negative impact on that criteria
+* more than 0 it has positive impact on that criteria
 
-Just click on the number, which defaults to 3, and enter a number between 1 and 5. After entering a rank, the score will be updated with the formula:
+Just click on the number, which defaults to 0 and colored red indicating that it needs to be set, and enter a number between -5 and 5. After entering a rank, the score will be updated with the formula:
 
 * Each criteria is scored by `rank * criteria weight`
 * The score is sum of all criteria scores

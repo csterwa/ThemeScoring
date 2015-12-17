@@ -8,7 +8,7 @@
  * Controller of the themeScoringApp
  */
 angular.module('themeScoringApp')
-  .controller('MainCtrl', function ($scope, $localStorage, $confirm, Criteria, Themes) {
+  .controller('MainCtrl', function ($scope, $localStorage, $confirm, Criteria, Themes, Team) {
   	var themeScoringAppCtl = this;
   	$scope.$storage = $localStorage;
 
@@ -38,6 +38,19 @@ angular.module('themeScoringApp')
             $scope.$storage.themeList = themes;
         } else {
             $scope.$storage.themeList = [];
+        }
+    };
+
+    Team.query(function(data) {
+        console.log('API team', data.body.results);
+        themeScoringAppCtl._setTeam(data.body.results);
+    });
+
+    themeScoringAppCtl._setTeam = function(data) {
+        if (data[0]) {
+            $scope.$storage.team = data[0].value;
+        } else {
+            $scope.$storage.team = {};
         }
     };
 
@@ -118,4 +131,21 @@ angular.module('themeScoringApp')
             console.log('error:', err);
         });
 	}, true);
+
+    $scope.$watch('$storage.team', function(newVal) {
+        if (!newVal) {
+            console.log('nothing to save');
+            return;
+        }
+
+        console.log('updating team data:', newVal);
+
+        Team.save(newVal,
+        function(result) {
+            console.log('saved team:', result);
+        },
+        function(err) {
+            console.log('error:', err);
+        });
+    }, true);
   });

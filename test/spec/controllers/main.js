@@ -123,4 +123,20 @@ describe('Controller: MainCtrl', function () {
     expect(scope.copiedThemeCriteria).toBeUndefined();
     expect(localStorage.themeList[1].criteria).toEqual(updatedThemeCriteria);
   });
+
+  it('should set team data', function() {
+    MainCtrl._setTeam([
+      { 'value': { 'name': 'Foo', 'product': 'Bar', 'vision': 'Setup stuff' } }
+    ]);
+
+    expect(localStorage.team.name).toEqual('Foo');
+    expect(localStorage.team.product).toEqual('Bar');
+    expect(localStorage.team.vision).toEqual('Setup stuff');
+  });
+
+  it('should handle no team data yet', function() {
+    MainCtrl._setTeam([]);
+
+    expect(localStorage.team).toEqual({});
+  });
 });

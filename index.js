@@ -96,6 +96,34 @@ app.get('/themes', function(req, res) {
   });
 });
 
+app.post('/team', function (req, res) {
+  var updatedTeam = req.body;
+
+  console.log('called team POST', updatedTeam);
+  db.post('team', updatedTeam)
+  .then(function(result) {
+    res.send(result);
+  })
+  .fail(function(err) {
+    res.send({'error': err});
+  });
+});
+
+app.get('/team', function(req, res) {
+  console.log('called team GET');
+
+  db.newSearchBuilder()
+  .collection('team')
+  .sort('@path.reftime', 'desc')
+  .query('*')
+  .then(function(result) {
+    res.send(result);
+  })
+  .fail(function(err) {
+    res.send({'error': err});
+  });
+});
+
 app.use('/', auth);
 app.use('/', express.static(__dirname + '/dist'));
 

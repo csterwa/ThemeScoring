@@ -12,4 +12,10 @@ angular.module('themeScoringApi', ['ngResource'])
       query: {method: 'GET', isArray: false},
       save:   {method:'POST'}
     });
+  }])
+.factory('Team', ['$resource', function($resource) {
+    return $resource('/team', {}, {
+      query: {method: 'GET', isArray: false},
+      save:   {method:'POST'}
+    });
   }]);

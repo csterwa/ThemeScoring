@@ -13,6 +13,7 @@ body {
 
 input {
   background-color: #252525;
+  margin: 5px 5px 5px 0;
 }
 
 .table .table {
@@ -86,8 +87,8 @@ a.editable-click {
   margin-top: 28px;
 }
 
-label {
-  width: 150px;
+.panel {
+  background-color: #252525;
 }
 
 /* Responsive: Portrait tablets and up */

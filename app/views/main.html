@@ -5,32 +5,35 @@
 </div>
 <div class="row">
   <div class="col-md-4" ng-hide="hideForms">
-    <p>
-      <form>
-        <div>
-          <label>Name:</label>
-          <input type='text' ng-model='criteriaName' placeholder="Criteria Name" required/>
-        </div>
-        <div>
-          <label>Weight:</label>
-          <input type='text' ng-model='criteriaWeight' placeholder="Criteria Weight" required/>
-        </div>
-        <button class="btn btn-default" ng-click="addCriteria(criteriaName, criteriaWeight); criteriaName=''; criteriaWeight=''">Add Criteria</button>
-      </form>
-    </p>
+    <div class="panel panel-default">
+      <div class="panel-heading">Add Criteria</div>
+      <div class="panel-body">
+        <form>
+          <div>
+            <input type='text' ng-model='criteriaName' size="30" placeholder="Criteria" required/>
+            <input type='text' ng-model='criteriaWeight' size="10" placeholder="Weight" required/>
+          </div>
+          <div>
+            <button class="btn btn-default" ng-click="addCriteria(criteriaName, criteriaWeight); criteriaName=''; criteriaWeight=''">Add</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
   <div ng-class="{'col-md-8': !hideForms, 'col-md-12': hideForms}">
-    <div ng-hide="hideForms">
-      <form>
-        <div>
-          <label>Name:</label>
-          <input type='text' ng-model='themeName' placeholder="Theme Name" required/>
-          <button class="btn btn-default" ng-click="addTheme(themeName); themeName=''">Add Theme</button>
-        </div>
-      </form>
+    <div class="panel panel-default" ng-hide="hideForms">
+      <div class="panel-heading">Add Theme</div>
+      <div class="panel-body">
+        <form>
+          <div>
+            <input type='text' ng-model='themeName' size="50" placeholder="Theme Name" required/>
+            <button class="btn btn-default" ng-click="addTheme(themeName); themeName=''">Add</button>
+          </div>
+        </form>
+      </div>
     </div>
     <p>
-      <input type="checkbox" ng-click="hideForms = !hideForms"/> Hide Criteria Form
+      <input type="checkbox" ng-click="hideForms = !hideForms"/> Show Themes Only
     </p>
   </div>
 </div>

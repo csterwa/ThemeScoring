@@ -124,6 +124,14 @@ describe('Controller: MainCtrl', function () {
     expect(localStorage.themeList[1].criteria).toEqual(updatedThemeCriteria);
   });
 
+  it('should save copied theme criteria when theme does not already have it', function() {
+    localStorage.themeList = [{name: 'jump'}];
+
+    scope.setupThemeCriteriaCopy(localStorage.themeList[0]);
+
+    expect(scope.copiedThemeCriteria).toEqual({});
+  });
+
   it('should set team data', function() {
     MainCtrl._setTeam([
       { 'value': { 'name': 'Foo', 'product': 'Bar', 'vision': 'Setup stuff' } }

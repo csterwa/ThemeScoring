@@ -77,7 +77,11 @@ angular.module('themeScoringApp')
     };
 
     $scope.setupThemeCriteriaCopy = function(theme) {
-        $scope.copiedThemeCriteria = angular.copy(theme.criteria);
+        if (theme.criteria) {
+            $scope.copiedThemeCriteria = angular.copy(theme.criteria);
+        } else {
+            $scope.copiedThemeCriteria = {};
+        }
     };
 
     $scope.saveThemeCriteria = function(theme) {

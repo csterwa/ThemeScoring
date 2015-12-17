@@ -63,16 +63,20 @@
       <tr ng-repeat="theme in $storage.themeList | orderBy:calculateScore:true">
         <td>
           <p><a href="#" editable-text="theme.name">{{ theme.name }}</a></p>
-          <table class="table table-striped" ng-show="editMe">
-            <tr><th colspan="2">Criteria Ranking</th></tr>
-            <tr ng-repeat="(name, c) in $storage.criteriaList">
-              <td>{{ name }}</td>
-              <td>
-                <a href="#" editable-text="copiedThemeCriteria[name]">{{ copiedThemeCriteria[name] || '0' }}</a>
-              </td>
-            </tr>
-            <tr><td colspan="2"><button ng-click="saveThemeCriteria(theme); editMe = false" class="btn btn-success btn-sm">Save</a></td>
-          </table>
+          <div class="panel panel-default" ng-show="editMe">
+            <div class="panel-heading">Criteria Ranking (-5 to 5)</div>
+            <table class="table table-striped">
+              <tr ng-repeat="(name, c) in $storage.criteriaList">
+                <td>{{ name }}</td>
+                <td>
+                  <a href="#" editable-text="copiedThemeCriteria[name]">{{ copiedThemeCriteria[name] || '0' }}</a>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2"><button ng-click="saveThemeCriteria(theme); editMe = false" class="btn btn-success btn-sm">Save</button></td>
+              </tr>
+            </table>
+          </div>
         </td>
         <td>{{ calculateScore(theme) }}</td>
         <td><a href="#" editable-textarea="theme.notes" e-rows="5" e-cols="30">{{ theme.notes || 'Add Notes' }}</a>

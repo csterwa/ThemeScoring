@@ -91,6 +91,11 @@ a.editable-click {
   background-color: #252525;
 }
 
+.panel .panel-heading {
+  background-color: #757575;
+  color: #dedede;
+}
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {

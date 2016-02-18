@@ -6,3 +6,7 @@
 /bundles
 npm-debug.log
 *-manifest.yml
+_builds/
+_cache/
+_steps/
+wercker.yml
